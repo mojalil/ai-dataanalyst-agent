@@ -61,4 +61,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Built with ❤️ [@motypes](https://twitter.com/motypes)
 
-Project Link: [https://github.com/mojalil/ai-dataanalyst-agent.git](https://github.com/mojalil/ai-dataanalyst-agent.git)
