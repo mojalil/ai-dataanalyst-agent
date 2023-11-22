@@ -1,4 +1,4 @@
-# Postgres Data Analyst AI Agent
+# AI Multi Agent Data Analyst
 
 ![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
