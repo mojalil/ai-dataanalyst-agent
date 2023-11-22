@@ -33,7 +33,7 @@ Ensure you have [Poetry](https://python-poetry.org/) installed on your system.
 
 1. Clone the repository:
 ```
-git clone https://yourrepositoryurl.git
+git clone git@github.com:mojalil/ai-dataanalyst-agent.git
 cd postgres-da-ai-agent
 ```
 
