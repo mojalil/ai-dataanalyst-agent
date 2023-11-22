@@ -1,8 +1,10 @@
 # AI Multi Agent Data Analyst
 
 ![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)
+![Postgres](https://img.shields.io/badge/postgres-13.3-blue.svg)
+![OpenAI](https://img.shields.io/badge/openai-0.2.0-blue.svg)
+![GitHub Issues](https://img.shields.io/github/issues/mojalil/ai-dataanalyst-agent.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 An AI-powered tool for data analysis, leveraging the power of OpenAI's GPT models and the Neon serverless database for efficient data handling and insights generation.
 
