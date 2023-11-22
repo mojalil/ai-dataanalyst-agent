@@ -8,6 +8,18 @@
 
 An AI-powered tool for data analysis, leveraging the power of OpenAI's GPT models and the Neon serverless database for efficient data handling and insights generation.
 
+## Table Of Contents
+- [AI Multi Agent Data Analyst](#ai-multi-agent-data-analyst)
+  - [Table Of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Configuration](#configuration)
+  - [Contributing](#contributing)
+  - [Tools](#tools)
+  - [License](#license)
+  - [Contact](#contact)
+
 ## Features
 
 - **Integrates with Neon Database:** Seamless connection with Neon serverless databases for data storage and retrieval.
@@ -52,6 +64,12 @@ Contributions are what make the open-source community such an amazing place to l
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## Tools
+Some tools when working with this project
+
+1. TablePlus for a simple database GUI
+
 
 ## License
 
