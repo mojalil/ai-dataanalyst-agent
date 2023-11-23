@@ -134,3 +134,7 @@ cython_debug/
 
 # Secret files
 /secrets
+.aider*
+
+# aider hello.js file
+hello.js
