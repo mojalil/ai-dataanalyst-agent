@@ -11,25 +11,29 @@ assert os.getenv("OPENAI_API_KEY") is not None, "OPENAI_API_KEY not found in .en
 DB_URL = os.getenv("POSTGRES_DATABASE_URL")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
+import argparse
+
 def main():
-    # parse arguments using argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prompt", help="The prompt for the AI")
+    args = parser.parse_args()
 
     with PostgresManager(DB_URL) as db:
         db.connect_with_url()
         users = db.get_all("users")
         print(users)
 
-        # call db_manger.get_talbe_definitions_for_prompt() to get tables in prompt ready format
+        table_definitions = db.get_table_definition_for_prompt()
 
-        # create two blank calls to llm.add_cap_ref() that update our current prompt passed in form cli
+        prompt = llm.add_cap_ref(args.prompt, "Here are the table definitions:", "TABLE_DEFINITIONS", table_definitions)
+        prompt = llm.add_cap_ref(prompt, "Here are the users:", "USERS", str(users))
 
-        # call llm.prompt() to get prompt response variable
+        prompt_response = llm.prompt(prompt)
 
-        # parse sql response from prompt_response using SQL_QUERY_DELIMITER '__________'
+        sql_queries = prompt_response.split('__________')
 
-        # call db_manager.run_sql() with the parsed sql
-
-    pass
+        for sql_query in sql_queries:
+            db.run_sql(sql_query)
 
 if __name__ == "__main__":
     main()
