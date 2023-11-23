@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
-from modules.db import PostgresManager
-from modules import llm
+from postgres_da_ai_agent.modules.db import PostgresManager
+from postgres_da_ai_agent.modules import llm
+import re
 
 load_dotenv()
 
@@ -32,7 +33,6 @@ def main():
 
     with PostgresManager(DB_URL) as db:
 
-        print("prompt v1: ", args.prompt)
         db.connect_with_url()
 
         table_definitions = db.get_table_definition_for_prompt()
@@ -58,7 +58,17 @@ def main():
 
         print("prompt_response: ", prompt_response)
 
-        sql_query = prompt_response.split(SQL_DELIMITER)[1].strip()
+        # Use regex to find the SQL block, ignoring case
+        try:
+            # This regex pattern looks for a SQL code block, ignoring the case of the 'sql' marker
+            sql_query_match = re.search(r'```[ \t]*sql(.*?)```', prompt_response, re.DOTALL | re.IGNORECASE)
+            if sql_query_match:
+                sql_query = sql_query_match.group(1).strip()  # Extract the SQL query
+            else:
+                raise ValueError("SQL code block not found in the response.")
+        except ValueError as e:
+            print(e)
+            return
 
         print("sql_query: ", sql_query)
 
@@ -66,7 +76,7 @@ def main():
         result = db.run_sql(sql_query)
 
         print("------ POSTGRES DATA ANALYTICS AI AGENT RESPONSE ------")
-        
+
         print(result)
 
 if __name__ == "__main__":

@@ -10,13 +10,11 @@ Purpose:
 """
 
 from dataclasses import dataclass
-import json
 import sys
 from dotenv import load_dotenv
 import os
 from typing import Any, Dict, List, Callable
 import openai
-import tiktoken
 
 # load .env file
 load_dotenv()
@@ -93,6 +91,7 @@ Example bash command:
     )
 
     return response_parser(response.model_dump())
+
 
 def add_cap_ref(
     prompt: str, prompt_suffix: str, cap_ref: str, cap_ref_content: str
